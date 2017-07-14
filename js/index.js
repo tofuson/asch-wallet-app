@@ -1,6 +1,4 @@
-mui.init();
 //localStorage.overall_url = 'http://testnet.asch.so:4096';//测试网络
-//localStorage.overall_url = 'http://123.207.29.68:8192';//tofuson
 //localStorage.overall_url = 'http://mainnet.asch.so';//官方
 localStorage.overall_url = 'http://122.139.66.196:9999';//节点问题处理
 localStorage.yearOne = 1467057600;//创世块时间戳
@@ -89,7 +87,9 @@ function login(){
 		localStorage.removeItem('password');
 		return;
 	}
-	if(localStorage.password.length <50){
+	var space_count = 0;
+	localStorage.password.replace(/\s/g,function(){ space_count++; });
+	if(localStorage.password.length<40 || space_count!=11){
 		alert(localStorage.language==1?'密码格式不符合BIP39安全规范!':'Password format does not meet BIP39 security specifications!');
 		localStorage.removeItem('password');
 		return;
