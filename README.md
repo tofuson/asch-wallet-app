@@ -3,7 +3,7 @@
 Asch钱包App -- 是基于[官方API](https://github.com/AschPlatform/asch-docs/blob/master/asch_http_interface.md)开发，
 为了方便海内外的Asch用户，特别提供了中英文版。
 
-Asch用户当前可以下载[安卓APP](https://www.pgyer.com/asch)或访问[WEB版](http://asch.mobi)登陆使用，苹果手机用户还需要耐心等待一段时间。
+安卓用户可以下载[安卓APP](https://www.pgyer.com/asch)或访问[WEB版](http://asch.mobi)登陆使用，苹果用户先使用WEB版，IOS App还需要耐心等待一段时间。
 
 ## 当前功能<br>
 - 注册
