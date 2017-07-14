@@ -50,15 +50,15 @@ if(num != -1){
 	localStorage.removeItem('language');
 	window.location.href = 'index.html';
 }else{
-		$(document).ready(
-		    function()
-		    {
-		        $('#form_id').delay(500).show(0);
-		        if(!(localStorage.language==0||localStorage.language==1)){
-		        	localStorage.language = 1;//1中文/0英文
-		        }
-		    }
-		);
+	$(document).ready(
+	    function()
+	    {
+		$('#form_id').delay(500).show(0);
+		if(!(localStorage.language==0||localStorage.language==1)){
+			localStorage.language = 1;//1中文/0英文
+		}
+	    }
+	);
 }
 //检测密码是否为空
 if(localStorage.password){
@@ -75,7 +75,7 @@ if(localStorage.password){
                 	localStorage.address = data['account']['address'];
                 	localStorage.secondSignature = data['account']['secondSignature'];
                 }
-		    }
+	}
     });
 }
 		
@@ -103,15 +103,15 @@ function login(){
             data:JSON.stringify({publicKey:localStorage.publicKey}),
             success:function (data) {
                 if(data['success'] == true){
-                	window.location.href = 'asch-handlock.html';
-                	localStorage.address = data['account']['address'];
+			window.location.href = 'asch-handlock.html';
+			localStorage.address = data['account']['address'];
                 }
-		    }
+	}
     });
 }
 //注册
 function register(){
-	var mnemonics = { "english": new Mnemonic("english") };
+    var mnemonics = { "english": new Mnemonic("english") };
     var mnemonic = mnemonics["english"];
     var numWords = parseInt(12);
     var strength = numWords / 3 * 32;
