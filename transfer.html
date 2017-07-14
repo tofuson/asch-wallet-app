@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title data-i18n="transfer">转账</title>
+		<meta name="keywords" content="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="description" content ="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public.css">
+		<style>
+			.mui-input-row label{
+				width: 29%;
+			}
+			.mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
+				width: 71%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="logo"></div>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="main.html">
+									<img src="img/home.png"><t data-i18n="home">首页</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="accounts.html">
+									<img src="img/personal.png"><t data-i18n="accounts">个人中心</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="blocks.html">
+									<img src="img/blockforging.png"><t data-i18n="blocks">区块生产</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="browse.html">
+									<img src="img/blockchains.png"><t data-i18n="browse">区块浏览</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="vote.html">
+									<img src="img/vote.png"><t data-i18n="vote">投票</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right mui-active" href="transfer.html">
+									<img src="img/pay.png"><t data-i18n="transfer">转账</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="peers.html">
+									<img src="img/per.png"><t data-i18n="peers">节点</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="about.html">
+									<img src="img/about.png"><t data-i18n="about">关于</t>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" style="color: black;"></a>
+					<h1 class="mui-title" style="font-weight: bold;" data-i18n="transfer">转账</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<form class="mui-input-group">
+							<div class="mui-input-row" style="height: 60px;">
+								<label data-i18n="total_balance">钱包余额(XAS)</label>
+								<input type="text" id="overall_balance" disabled="disabled">
+							</div>
+							<div class="mui-input-row">
+								<label data-i18n="sender">发送者</label>
+								<input type="text" id="send_addr" style="font-size: 12px;" disabled="disabled">
+							</div>
+							<div class="mui-input-row">
+								<label data-i18n="recipient">接受者</label>
+								<input type="text" id="addr_id" class="mui-input-clear" placeholder="请输入对方的Asch地址">
+							</div>
+							<div class="mui-input-row">
+								<label data-i18n="amount">金额</label>
+								<input type="text" id="asch_id" class="mui-input-clear" placeholder="请输入转账金额">
+							</div>
+							<div class="mui-input-row" id="second_show" style="display: none;">
+								<label data-i18n="second_secret">二级密码</label>
+								<input type="password" id="second_id" class="mui-input-clear" placeholder="请输入二级密码">
+							</div>
+							<div class="mui-input-row">
+								<label data-i18n="fee">费用</label>
+								<input type="text" disabled="disabled" value="0.1">
+							</div>
+							<div class="mui-input-row mui-text-center" style="height: 60px;padding: 10px;">
+								<div data-i18n="prompt">请确保您正在发送XAS给正确的地址<br/>本操作无法撤消</div>
+							</div>
+							<div class="mui-button-row">
+								<button type="button" class="mui-btn mui-col-xs-4" onclick="transfer()" data-i18n="send">发送</button>
+							</div>
+						</form>
+						<div class="mui-text-center">
+							<img src="img/logo.png" style="width: 80%; margin-top: 80px;"/>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/browserify-asch-min.js"></script>
+		<script src="js/transfer.js"></script>
+		<script src="js/i18n.min.js"></script>
+  		<script src="js/l10n.min.js"></script>
+  		<script src="js/english.js"></script>
+	</body>
+
+</html>

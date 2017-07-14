@@ -1,0 +1,92 @@
+html,
+body {
+	background-color: #FFFFFF;
+}
+p {
+	text-indent: 22px;
+}
+span.mui-icon {
+	font-size: 14px;
+	color: #007aff;
+	margin-left: -15px;
+	padding-right: 10px;
+}
+#offCanvasWrapper{
+	background-color: #000000;
+}
+.mui-off-canvas-left {
+	color: #fff;
+	background-color: black;
+}
+.title {
+	margin: 35px 15px 10px;
+}
+.title+.content {
+	margin: 10px 15px 35px;
+	color: #bbb;
+	text-indent: 1em;
+	font-size: 14px;
+	line-height: 24px;
+}
+input {
+	color: #000;
+}
+.logo{
+	background: url(../img/logo.png);
+	background-size:100%;
+	height: 47px;
+	width: 180px;
+	margin: 35px;
+	-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));
+}
+.mui-scroll ul {
+	background-color: black;
+}
+.mui-scroll ul li a{
+	font-size: 22px;
+} 
+.mui-scroll ul li a img{
+	margin-right: 15px;
+	margin-left: 10px;
+	height: 20px;
+	letter-spacing:2px;
+}
+.text-cl{
+	font-weight: bold;
+	font-size: 18px;
+}
+.text-min{
+	font-weight: bold;
+	font-size: 12px;
+}
+.textarea-class{
+	font-weight: bold;
+	font-size: 12px;
+	width: 240px;
+    word-break: break-all;
+    /*text-overflow: ellipsis;*/
+    /*display: -webkit-box;*/ /** 对象作为伸缩盒子模型显示 **/
+    /*-webkit-box-orient: vertical;*/ /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+#topPopover {
+	position: fixed;
+	top: 16px;
+	right: 6px;
+}
+#topPopover .mui-popover-arrow {
+	left: auto;
+	right: 6px;
+}
+p {
+	text-indent: 22px;
+}
+span.mui-icon {
+	font-size: 14px;
+	color: #007aff;
+	margin-left: -15px;
+	padding-right: 10px;
+}
+.mui-popover {
+	height: 300px;
+}

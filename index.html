@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title data-i18n="title">Asch移动钱包</title>
+	<meta name="keywords" content="Asch钱包,让你体验不一样的区块链支付"/>
+	<meta name="description" content ="Asch钱包,让你体验不一样的区块链支付"/>
+	<link href="css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/component.css">
+</head>
+<body>
+	<div id="form_id" class="htmleaf-container">
+		<div class="wrapper">
+			<div class="container">
+				<img src="img/logo.png"/>
+				<!--<h1 data-i18n="welcome">欢迎</h1>-->
+				<form class="form">
+					<input type="password" id="password" placeholder="请输入主密码"/>
+					<button type="button" id="login-button" onclick="login()" data-i18n="login">登陆</button>
+					<button class="md-trigger" type="button" id="login-button" onclick="register()" data-modal="modal-1" data-i18n="new">注册</button>
+				</form>
+				<label>CN<input id="mySwitch" class="mui-switch" type="checkbox"/> EN</label>
+			</div>
+		</div>
+	</div>
+	<div class="md-modal md-effect-1" id="modal-1">
+		<div class="md-content">
+			<h3 data-i18n="create_password">创建主密码</h3>
+			<div>
+				<p data-i18n="new_password">新的主密码</p>
+				<div id="new_password"></div>
+				<p data-i18n="system_create">系统为您生成了足够安全的新密码<br>请备份好，如若丢失，将无法找回</p>
+				<button class="copy_id" data-i18n="copy_password">复制主密码</button>
+				<button class="md-close" data-i18n="close">关闭</button>
+			</div>
+		</div>
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/browserify-asch-min.js"></script>
+	<script src="js/sjcl-bip39.js"></script>
+    <script src="js/wordlist_english.js"></script>
+    <script src="js/jsbip39.js"></script>
+    <script src="js/i18n.min.js"></script>
+	<script src="js/l10n.min.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/modalEffects.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script>
+		var clipboard = new Clipboard('.copy_id');
+		clipboard.on('success', function(e) {
+			e.clearSelection();
+			$(".md-close").click();
+		});
+		clipboard.on('error', function(e) {
+		});
+	</script>
+</body>
+</html>

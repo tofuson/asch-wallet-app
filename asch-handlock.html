@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <title data-i18n="title">解锁</title>
+  <meta name="keywords" content="Asch钱包,让你体验不一样的区块链支付"/>		
+  <meta name="description" content ="Asch钱包,让你体验不一样的区块链支付"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="author" content="Asch" /> 
+  <style type="text/css">
+      * {
+				padding: 0;
+				margin: 0;
+			}
+			
+			html, body {
+				width: 100%;
+				height: 400px;
+			}
+			
+			body {
+				background-color: #f0f0f2;
+				text-align: center;
+				background: url(img/bg.gif);
+				background-size:100%;
+			}
+			
+			#handlock {
+				width: 100%;
+				height: auto;
+				max-width: 500px;
+				min-width: 300px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#handlock .info {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 300px;
+				height: 50px;
+				background-color: rgba(255, 255, 255, 0.6);
+				color: #FF0000;
+				line-height: 50px;
+				font-size: 22px;
+				border-radius: 50px;
+				display: none;
+			}
+			
+			#handlock canvas {
+				margin: 0 auto;
+			}
+			
+			#reset_passwords {
+				font-size: 20px;
+				margin-top: 200px;
+				font-weight: bold;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				outline: 0;
+				background-color: white;
+				border: 0;
+				padding: 10px 15px;
+				color: #A9A9A9;
+				border-radius: 3px;
+				width: 250px;
+				cursor: pointer;
+				font-size: 18px;
+				-webkit-transition-duration: 0.25s;
+				transition-duration: 0.25s;
+			}
+			
+  </style> 
+ </head> 
+ <body> 
+  <div id="handlock"> 
+   <div class="info"></div> 
+  </div> 
+  <button id="reset_passwords" class="mui-btn mui-btn-primary" style="display: none;" data-i18n="reset_password">重置密码</button>
+  <link rel="stylesheet" href="css/mui.min.css">
+  <script src="js/handlock.js"></script> 
+  <script src="js/mui.min.js"></script>   
+  <script src="js/jquery.js"></script>   
+  <script src="js/i18n.min.js"></script>
+  <script src="js/l10n.min.js"></script>
+  <script type="text/javascript">
+  	mui.init();
+  	window.l10n = {
+	    'en-us': {
+	        title: 'Unlocked',
+	        reset_password: 'Reset password',
+	        },
+	    'zh-cn': {
+	    	title: '解锁',
+	    	reset_password: '重置密码',
+	    }
+	}
+	
+	if(localStorage.language == 1){
+	    L10N.updateLang('zh-cn');
+	  }else{
+	    L10N.updateLang('en-us');
+	  }
+    var el = document.getElementById('handlock'),
+    info = el.getElementsByClassName('info')[0],
+	reset_passwords = document.getElementById('reset_passwords');
+    new handLock({
+      el: el,
+      info: info,
+      reset_passwords: reset_passwords,
+      n: 3
+    }).init();
+    
+	$(document).ready(
+	    function()
+	    {
+	        $('#reset_passwords').delay(500).show(0);
+	    }
+	);
+  </script> 
+  <script src="js/update.js"></script>
+ </body>
+</html>

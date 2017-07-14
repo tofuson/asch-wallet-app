@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title data-i18n="blocks">区块生产</title>
+		<meta name="keywords" content="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="description" content ="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public.css">
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="logo"></div>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="main.html">
+									<img src="img/home.png"><t data-i18n="home">首页</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="accounts.html">
+									<img src="img/personal.png"><t data-i18n="accounts">个人中心</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right mui-active" href="blocks.html">
+									<img src="img/blockforging.png"><t data-i18n="blocks">区块生产</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="browse.html">
+									<img src="img/blockchains.png"><t data-i18n="browse">区块浏览</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="vote.html">
+									<img src="img/vote.png"><t data-i18n="vote">投票</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="transfer.html">
+									<img src="img/pay.png"><t data-i18n="transfer">转账</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="peers.html">
+									<img src="img/per.png"><t data-i18n="peers">节点</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="about.html">
+									<img src="img/about.png"><t data-i18n="about">关于</t>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left mui-" style="color: black;"></a>
+					<a class="mui-action-menu mui-icon mui-icon-spinner mui-spin mui-pull-right" style="color: black;" href="#topPopover"></a>
+					<h1 class="mui-title" style="font-weight: bold;" data-i18n="blocks">区块生产</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<h3 class="mui-text-center title" data-i18n="delegate_information">受托人基本信息</h3>
+						<div class="mui-card">
+							<div class="mui-card-header">
+								<button class="mui-text-left" id="btn_forging"></button>
+								<button class="mui-text-right" id="btn_register" onclick="register()"></button>
+							</div>
+						</div>
+						<div class="mui-card">
+							<div class="mui-card-header">
+								<div class="mui-text-left" data-i18n="total_revenue">总收益(XAS)</div>
+								<div class="mui-text-right text-cl" id="forged_id">--</div>
+							</div>
+						</div>
+						<div class="mui-card" id="rate_x" style="display: none;">
+							<div class="mui-card-header">
+								<div class="mui-text-left" data-i18n="ranking">排名</div>
+								<div class="mui-text-right text-cl" id="rate_id">--</div>
+							</div>
+						</div>
+						<div class="mui-card" id="productivity_x" style="display: none;">
+							<div class="mui-card-header">
+								<div class="mui-text-left" data-i18n="productivity">生产率</div>
+								<div class="mui-text-right text-cl" id="productivity_id">--</div>
+							</div>
+						</div>
+						<div class="mui-card" id="approval_x" style="display: none;">
+							<div class="mui-card-header">
+								<div class="mui-text-left" data-i18n="approval_rate">得票率</div>
+								<div class="mui-text-right text-cl" id="approval_id">--</div>
+							</div>
+						</div>
+						<div id="blocks_x" style="display: none;">
+							<h3 class="title mui-text-center" data-i18n="produced_blocks">生产的区块</h3>
+							<div id="my_blocks">
+								<!--<div class="mui-card">
+									<div class="mui-card-header">
+										<div class="mui-text-left">高度</div>
+										<div class="mui-text-right">
+										<div class="mui-text-right text-cl">3435464</div>
+										</div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left">日期</div>
+										<div class="mui-text-right text-cl">2017/05/21 16:48:50</div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left">ID</div>
+										<div class="mui-text-right">
+											<div class="textarea-class">709df2071cf00a2dced8486e7ca24f8c8acde8f8ac90d61a2ca36996369353c9</div>
+										</div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left">交易(金额)</div>
+										<div class="mui-text-right text-cl">0(0)</div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left">费用(奖励)</div>
+										<div class="mui-text-right text-cl">0(3.5)</div>
+									</div>
+								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-text-center"><h4 data-i18n="switch_network">切换网络</h4></li>
+						<li class="mui-table-view-cell"><button class="mui-col-xs-12" onclick="change_ip(1)" data-i18n="own_server">自己的服务器</button></li>
+						<li class="mui-table-view-cell"><button class="mui-col-xs-12" onclick="change_ip(2)" data-i18n="default_domestic_server">默认国内服务器</button></li>
+						<li class="mui-table-view-cell"><button class="mui-col-xs-12" onclick="change_ip(3)" data-i18n="official_overseas_server">官方海外服务器</button></li>
+						<li class="mui-table-view-cell"><button class="mui-col-xs-12" onclick="change_ip(4)" data-i18n="community_server">开发社区服务器</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/browserify-asch-min.js"></script>
+		<script src="js/blocks.js"></script>
+		<script src="js/i18n.min.js"></script>
+  		<script src="js/l10n.min.js"></script>
+  		<script src="js/english.js"></script>
+	</body>
+
+</html>

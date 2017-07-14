@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title data-i18n="accounts">个人中心</title>
+		<meta name="keywords" content="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="description" content ="Asch钱包,让你体验不一样的区块链支付"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public.css">
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="logo"></div>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="main.html">
+									<img src="img/home.png"><t data-i18n="home">首页</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right mui-active" href="accounts.html">
+									<img src="img/personal.png"><t data-i18n="accounts">个人中心</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="blocks.html">
+									<img src="img/blockforging.png"><t data-i18n="blocks">区块生产</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="browse.html">
+									<img src="img/blockchains.png"><t data-i18n="browse">区块浏览</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="vote.html">
+									<img src="img/vote.png"><t data-i18n="vote">投票</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="transfer.html">
+									<img src="img/pay.png"><t data-i18n="transfer">转账</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="peers.html">
+									<img src="img/per.png"><t data-i18n="peers">节点</t>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="about.html">
+									<img src="img/about.png"><t data-i18n="about">关于</t>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" style="color: black;"></a>
+					<a class="mui-pull-right mui-btn" href="index.html?#" data-i18n="logout">注销</a>
+					<h1 class="mui-title" style="font-weight: bold;" data-i18n="accounts">个人中心</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-content">
+						<div>
+							<div class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary" style="font-weight: bold;" >
+								<a class="mui-control-item mui-active" href="#accounts_id" data-i18n="account_information">账户信息</a>
+								<a class="mui-control-item" href="#secondPassword_id" data-i18n="second_secret">二级密码</a>
+							</div>
+						</div>
+						<div id="accounts_id" class="mui-control-content mui-text-center mui-active">
+							<h3 class="title mui-text-center" data-i18n="basic_information">基本信息</h3>								
+							<div class="mui-card">
+								<form class="mui-input-group">
+									<img style="width: 120px;" src="img/userlogo.png"/>
+									<div class="mui-card-header">
+										<div class="mui-text-left" data-i18n="total_balance">钱包余额(XAS)</div>
+										<div class="mui-text-right text-cl" id="balance_id"></div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left mui-col-xs-2" data-i18n="address">地址</div>
+										<input type="text" disabled="disabled" class="mui-text-right text-min" id="addr_id">
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left" data-i18n="second_secret">二级密码</div>
+										<div class="mui-text-right" id="secondPassword"></div>
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-left" data-i18n="public_key">公钥</div>
+										<div class="mui-text-right">
+											<div class="textarea-class" id="publicKey"></div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div id="secondPassword_id" class="mui-control-content">
+							<div id="setting_id" style="display: none;">
+								<h3 class="title mui-text-center" data-i18n="set_secondary_password">设置二级密码</h3>	
+								<div class="mui-card">
+									<div class="mui-card-header">
+										<label class="mui-col-xs-4" data-i18n="password">密码</label>
+										<input type="password" id="password_id" class="mui-input-clear" placeholder="输入8到16位数字和字母组合">
+									</div>
+									<div class="mui-card-header">
+										<label class="mui-col-xs-4" data-i18n="confirm">确认</label>
+										<input type="password" id="second_id" class="mui-input-clear" placeholder="再次输入">
+									</div>
+									<div class="mui-card-header">
+										<div class="mui-text-center" style="width: 100%;line-height: 30px;" data-i18n="secondary_prompt">
+											请确定您已经安全保存了二级密码<br>
+											一旦丢失<br>
+											您在Asch系统中的财产将无法找回<br>
+											设置二级密码需要<span style="font-weight: bold;">5XAS</span>手续费
+										</div>
+									</div>
+									<div class="mui-button-row" style="margin-bottom: 5px;">
+										<button class="mui-btn mui-col-xs-4" onclick="submit_data()" data-i18n="submit">提交</button>
+									</div>
+								</div>
+							</div>
+							<div class="mui-card mui-text-center" id="already_id" style="display: none;">
+								<br>
+								<img src="img/tip_passwordNo.png"/>
+								<br>
+								<br>
+								<div style="font-weight: bold;" data-i18n="have_been_set">您已经设置过二级密码</div>
+								<br>
+							</div>
+						</div>
+						<div class="mui-text-center">
+								<img src="img/logo.png" style="width: 80%; margin-top: 20px;"/>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/browserify-asch-min.js"></script>
+		<script src="js/accounts.js"></script>
+		<script src="js/i18n.min.js"></script>
+  		<script src="js/l10n.min.js"></script>
+  		<script src="js/english.js"></script>
+	</body>
+
+</html>
