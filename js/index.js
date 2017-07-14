@@ -102,7 +102,6 @@ function login(){
             contentType: 'application/json',
             data:JSON.stringify({publicKey:localStorage.publicKey}),
             success:function (data) {
-//		            	console.log(JSON.stringify(data));
                 if(data['success'] == true){
                 	window.location.href = 'asch-handlock.html';
                 	localStorage.address = data['account']['address'];
@@ -117,7 +116,6 @@ function register(){
     var numWords = parseInt(12);
     var strength = numWords / 3 * 32;
     var words = mnemonic.generate(strength);
-//	        console.log(words);
     $('#new_password').html(words);
     $(".copy_id").attr("data-clipboard-text",words);
 }
