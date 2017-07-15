@@ -51,7 +51,7 @@ function formatDate(now) {
  
  //公共下拉加载
 function public_addData(){
-	return;
+	return;//有问题，暂时屏蔽，望码神处理
 	var _self;
 	if(window.plus) {
 		plusReady();
@@ -75,17 +75,19 @@ function public_addData(){
 			_self.close("auto");
 		},false);
 	}
-
-	/**
-	 * 下拉刷新具体业务实现
-	 */
-	function pulldownRefresh() {
-		setTimeout(function() {
-			addData();
-			_self.endPullToRefresh();
-		}, 1000);
-	}
 }
+
+/**
+* 下拉刷新具体业务实现
+*/
+function pulldownRefresh() {
+	setTimeout(function() {
+		addData();
+		_self.endPullToRefresh();
+	}, 1000);
+}
+
+
 //语言转换
 function lg(cn,en){
 	if(localStorage.language == 1){
